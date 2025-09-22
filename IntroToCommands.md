@@ -2,7 +2,7 @@
 For this challenge, we must invoke the hello command to get the flag
 
 # The Solve
-Here, I executed the whoami command, which simply prints the username to the terminal. When the command terminates, the shell once again will display the prompt, ready for the next command. In this level, I invoked the hello command to get the flag.
+Here, I executed the command, which simply prints the username (hacker) to the terminal. When the command terminates, the shell once again will display the prompt, ready for the next command. In this level, I invoked the hello command to get the flag.
 
 flag: pwn.college{gZsLiKKwezyOlrMwavgNQNgx0dw.QX3YjM1wiMwEzNzEzW}
 
