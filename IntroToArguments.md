@@ -1,4 +1,4 @@
-#INTRO TO ARGUMENTS
+# INTRO TO ARGUMENTS
 For this challenge, we must invoke the hello command with a single argument of hackers to get the flag
 
 # The Solve
