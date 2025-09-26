@@ -50,6 +50,7 @@ To solve this challenge, we must first run the /challenge/run program. This prog
 
 code:
 ```
+hacker@paths~position-thy-self:~$ cd /
 hacker@paths~position-thy-self:/$ /challenge/run
 Correct!!!
 /challenge/run is an absolute path, invoked from the right directory!
