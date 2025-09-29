@@ -165,10 +165,10 @@ None used for this challenge
 
 
 # Implicit Relative Path
-
+This challenge requires executing the program named `run` located in the current working directory, which is `/challenge`
 
 ## The Solve
-
+The challenge is solved by explicitly telling the Linux shell to execute the program run located in the current directory (`/challenge`) by using the relative path indicator `./` before the program name. Since Linux does not automatically look in the current directory for security reasons, simply typing run results in a "command not found" error. By executing the command as `./run`, the dot (`.`) represents the current directory, the forward slash (`/`) acts as a path separator, and the shell is correctly instructed to look in the current location for the executable file, thus successfully launching the program
 
 code:
 ```
@@ -182,15 +182,17 @@ pwn.college{c2PsSN2E8yNjv6cjXVRwqXt1lqG.QXxUTN0wiMwEzNzEzW}
 flag: `pwn.college{c2PsSN2E8yNjv6cjXVRwqXt1lqG.QXxUTN0wiMwEzNzEzW} `
 
 ## What I learnt
-
+The key concept learned from this challenge is the necessity of using the relative path prefix `./` when executing programs located in the current working directory on Linux. This practice explicitly tells the shell to look in the present location (represented by the dot, `.`) for the executable, as simply typing the program name will fail with a "command not found" error. This behaviour is a fundamental security measure in Linux, preventing accidental execution of programs in the current directory that might inadvertently share the names of core system utilities.
 
 ## References 
 None used for this challenge
 
 
 # Home Sweet Home
+The challenge requires you to execute the program `/challenge/run` and provide it with a single absolute path as a command-line argument, where the program will write a copy of the flag. This argument must satisfy three strict constraints: the final, expanded path must be a valid absolute path; the path must reside inside your home directory (`/home/hacker`); and critically, the path argument must be three characters or less before the shell performs any expansion. The goal is to use a path shorthand to meet both the absolute path and the length constraints simultaneously.
 
 ## The Solve
+The challenge requires us to execute the program `/challenge/run` and provide it with a single absolute path as a command-line argument, where the program will write a copy of the flag. This argument must satisfy three strict constraints: the final, expanded path must be a valid absolute path; the path must reside inside our home directory (`/home/hacker`); and critically, the path argument must be three characters or fewer before the shell performs any expansion. The goal is to use a path shorthand to meet both the absolute path and the length constraints simultaneously.
 
 code:
 ```
@@ -202,6 +204,7 @@ pwn.college{Y-joQ8ey8ROGU9LFxAfBuhSPYG7.QXzMDO0wiMwEzNzEzW}
 flag: `pwn.college{Y-joQ8ey8ROGU9LFxAfBuhSPYG7.QXzMDO0wiMwEzNzEzW} `
 
 ## What I learnt
+I learnt from this challenge the remarkable usefulness of tilde expansion (`~`) in the Bash shell. I learned that this single character `~` is a shortcut that the shell automatically converts to the absolute path of my home directory (`/home/hacker`) before executing a command. This feature proved essential for completing the challenge, as it enabled me to circumvent the strict three-character length limitation while also providing an absolute path located within my home directory, fulfilling all the program's criteria with the succinct command: `/challenge/run ~`.
 
 ## References 
 None used for this challenge
