@@ -66,3 +66,142 @@ This challenge taught me how to execute a program using its absolute path, which
 None used for this challenge
 
 
+# Position Elsewhere
+For this challenge, you will be required to execute the `/challenge/run` program from a specific path (which will be told) and need to cd to that directory before rerunning the challenge program
+
+## The Solve
+To address this challenge, we need to use the `cd` (change directory) command to navigate our shell to the particular path needed by the challenge program. First, we determine the required directory from the provided instructions. Next, we run the `cd` command followed by that path as its argument (for instance, `cd /the/required/path`). After we have successfully altered our current working directory, we can then run the program, `/challenge/run`, to finish the task.
+
+code:
+```
+hacker@paths~position-elsewhere:~$ cd /tmp
+hacker@paths~position-elsewhere:/tmp$ /challenge/run
+Correct!!!
+/challenge/run is an absolute path, invoked from the right directory!
+Here is your flag:
+pwn.college{Iwf5g3KXOtFnnGx1USi909PiK6Z.QX3QTN0wiMwEzNzEzW}
+```
+flag: `pwn.college{Iwf5g3KXOtFnnGx1USi909PiK6Z.QX3QTN0wiMwEzNzEzW}`
+
+## What I learnt
+The main concepts I grasped from this challenge revolved around navigating the Linux filesystem. I learned how to alter my location within the system using the fundamental `cd` (change directory) command, which requires a path as its argument. This command adjusts the current working directory of my shell process. Additionally, I realised that the tilde (`~`) symbol in the shell prompt indicates the path of my current location in the shell. Ultimately, the challenge taught me that I must be in the right directory—using `cd`—before I can run a program like `/challenge/run`.
+
+## References 
+None used for this challenge
+
+
+# Position Yet Elsewhere
+For this challenge, you will be required to execute the `/challenge/run` program from a specific path (which will be told). You'll need to cd to that directory before rerunning the challenge program.
+
+## The Solve
+To solve it, we must first identify the specific path required by the instructions. We then use the `cd` command, like `cd /the/required/path`, to change our shell's current working directory to that location. Once successfully positioned, we execute the program `/challenge/run` to complete the task.
+
+code:
+```
+hacker@paths~position-yet-elsewhere:~$ cd /proc/148/fd
+hacker@paths~position-yet-elsewhere:/proc/148/fd$ /challenge/run
+Correct!!!
+/challenge/run is an absolute path, invoked from the right directory!
+Here is your flag:
+pwn.college{MS86CwnojvDdxy3tEKw1-Z6Shx2.QX4QTN0wiMwEzNzEzW}
+
+```
+flag: `pwn.college{MS86CwnojvDdxy3tEKw1-Z6Shx2.QX4QTN0wiMwEzNzEzW}`
+
+## What I learnt
+The essential ideas derived from this exercise include the crucial function of the `cd` command for navigating the filesystem, and the realisation that this command alters the current working directory of the shell process. Furthermore, I learnt that the tilde (`~`) character in the shell prompt serves as a shorthand indicator of the present position in the filesystem, offering instant feedback on the location of our process.
+
+## References 
+None used for this challenge
+
+
+# Implicit Relative Paths, from /
+For this challenge, you will need to run /challenge/run using a relative path while having a current working directory of /
+
+## The Solve
+To solve this specific challenge, we must first change our current working directory to the root directory, `/`, by using the command: `cd /`. Once our shell is located at the root, we can construct the correct relative path to the program `/challenge/run`. Since relative paths are interpreted starting from the current working directory and do not begin with a slash, the correct path to use in this context is `challenge/run`. Therefore, the solution involves executing `cd /` followed by running the program using that specific relative path.
+
+code:
+```
+hacker@paths~implicit-relative-paths-from-:~$ cd /
+hacker@paths~implicit-relative-paths-from-:/$ challenge/run
+Correct!!!
+challenge/run is a relative path, invoked from the right directory!
+Here is your flag:
+pwn.college{Qs_MZ-aQQM7oJMTzWt9JSmKauQ3.QX5QTN0wiMwEzNzEzW}
+```
+flag: `pwn.college{Qs_MZ-aQQM7oJMTzWt9JSmKauQ3.QX5QTN0wiMwEzNzEzW}`
+
+## What I learnt
+The key concept I learnt here is the critical difference between absolute paths and relative paths in the Linux filesystem. An absolute path always starts at the root (`/`) and works regardless of the current working directory. In contrast, a relative path does not start with `/` and is interpreted relative to the current working directory. The challenge demonstrates that the same target file requires different relative paths depending on where our shell is located. Furthermore, I learnt the special meaning of `..`, which allows us to reference the parent directory when building relative paths
+
+## References 
+None used for this challenge
+
+
+# Explicit Relative Paths, from /
+For this challenge, you will need to use `.` which refers to the current directory, to make your relative paths more explicit
+
+## The Solve
+To solve the challenge, we should use the single dot `.` in the relative path when referencing the target file or directory. Since the single dot explicitly refers to the current directory, a typical solution involves starting your relative path with `./`. 
+
+code:
+```
+hacker@paths~explicit-relative-paths-from-:~$ cd /
+hacker@paths~explicit-relative-paths-from-:/$ ./challenge/run
+Correct!!!
+./challenge/run is a relative path, invoked from the right directory!
+Here is your flag:
+pwn.college{w8RDYFvu-nY8WahZIkH1xj9_vGx.QXwUTN0wiMwEzNzEzW}
+
+```
+flag: `pwn.college{w8RDYFvu-nY8WahZIkH1xj9_vGx.QXwUTN0wiMwEzNzEzW}`
+
+## What I learnt
+The key concept is understanding that the single dot (`.`) explicitly refers to the current working directory. This allows you to create explicit relative paths, such as `./filename`, which clarifies that the path starts from your current location. Importantly, the file system treats repeated use of `./` (e.g., `././challenge`) and trailing `/.` (e.g., `challenge/.`) as redundant but valid references, confirming that paths like `challenge` and `./challenge` are functionally equivalent.
+
+## References 
+None used for this challenge
+
+
+# Implicit Relative Path
+
+
+## The Solve
+
+
+code:
+```
+hacker@paths~implicit-relative-path:/$ cd /challenge
+hacker@paths~implicit-relative-path:/challenge$ ./run
+Correct!!!
+./run is a relative path, invoked from the right directory!
+Here is your flag:
+pwn.college{c2PsSN2E8yNjv6cjXVRwqXt1lqG.QXxUTN0wiMwEzNzEzW}
+```
+flag: `pwn.college{c2PsSN2E8yNjv6cjXVRwqXt1lqG.QXxUTN0wiMwEzNzEzW} `
+
+## What I learnt
+
+
+## References 
+None used for this challenge
+
+
+# Home Sweet Home
+
+## The Solve
+
+code:
+```
+hacker@paths~home-sweet-home:~$ /challenge/run ~/f
+Writing the file to /home/hacker/f!
+... and reading it back to you:
+pwn.college{Y-joQ8ey8ROGU9LFxAfBuhSPYG7.QXzMDO0wiMwEzNzEzW}
+```
+flag: `pwn.college{Y-joQ8ey8ROGU9LFxAfBuhSPYG7.QXzMDO0wiMwEzNzEzW} `
+
+## What I learnt
+
+## References 
+None used for this challenge
