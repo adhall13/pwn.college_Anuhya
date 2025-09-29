@@ -82,12 +82,50 @@ pwn.college{sVm5KUZzdDzyYaI2xjNk_P0xYwh.0lM3kjNxwiMwEzNzEzW}
 # Mixing Globs
 code:
 ```
-
+hacker@globbing~mixing-globs:~$ cd /challenge/files
+hacker@globbing~mixing-globs:/challenge/files$ /challenge/run [cep]
+Your expansion did not expand to the requested files (challenging, educational, 
+pwning). Instead, it expanded to:
+[cep]
+hacker@globbing~mixing-globs:/challenge/files$ /challenge/run [cep]*
+You got it! Here is your flag!
+pwn.college{EIqyHyjztCDLuYqzZqC1m0UvDC5.QX1IDO0wiMwEzNzEzW}
 ```
 
 
 # Exclusionary Globbing
 code:
 ```
+hacker@globbing~exclusionary-globbing:~$ cd /challenge/files
+hacker@globbing~exclusionary-globbing:/challenge/files$ /challenge/run [^pwn]*
+You got it! Here is your flag!
+pwn.college{sGdct-pUkZ1tTz94FAR5KXETGgd.QX2IDO0wiMwEzNzEzW}
+```
 
+
+# Tab Completion
+code:
+```
+hacker@globbing~tab-completion:~$ ls /challenge
+DESCRIPTION.md  pwncollege​
+hacker@globbing~tab-completion:~$ cat /challenge/pwncollege​ 
+pwn.college{wTfbp6pxnMppN6NKLITDkpioxmW.0FN0EzNxwiMwEzNzEzW}
+```
+
+
+# Multiple Options for Tab Completion
+code:
+```
+hacker@globbing~multiple-options-for-tab-completion:~$ cat /challenge/files/pwncollege-flag
+pwn.college{oN_H_KC1kw_ji1IrYElsxakJ6Us.0lN0EzNxwiMwEzNzEzW}
+```
+
+
+# Multiple Options on Command
+Type `pwncollege` and press tab to autofill the command, and press enter to get the flag
+code:
+```
+hacker@globbing~tab-completion-on-commands:~$ pwncollege-8310 
+Correct! Here is your flag:
+pwn.college{omvdNFY-pb7ZUfrcRspEW-EvgQE.0VN0EzNxwiMwEzNzEzW}
 ```
