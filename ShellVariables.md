@@ -53,19 +53,28 @@ pwn.college{klfjOTv0X1_7q3yvFagwwdr45DI.QX4UTN0wiMwEzNzEzW}
 # Sorting Command Output
 code:
 ```
-
+hacker@variables~storing-command-output:~$ PWN=$(/challenge/run)
+Congratulations! You have read the flag into the PWN variable. Now print it out 
+and submit it!
+hacker@variables~storing-command-output:~$ echo "$PWN"
+pwn.college{8nbc38e93hhsqz02p07QgUm7w7a.QX1cDN1wiMwEzNzEzW}
 ```
 
 
 # Reading Input
 code:
 ```
-
+hacker@variables~reading-input:~$ read -p "INPUT :" PWN
+INPUT :COLLEGE
+You've set the PWN variable properly! As promised, here is the flag:
+pwn.college{A0ygtfH97tGvLtMKhgO6ltkfGVe.QX4cTN0wiMwEzNzEzW}
 ```
 
 
 # Reading Files
 code:
 ```
-
+hacker@variables~reading-files:~$ read PWN < /challenge/read_me
+You've set the PWN variable properly! As promised, here is the flag:
+pwn.college{kd_v4Ve8zoWvSm954wSlwsEJkSn.QXwIDO0wiMwEzNzEzW}
 ```
