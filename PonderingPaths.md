@@ -13,7 +13,7 @@ pwn.college{sChKj3fPT6HG2ZzbNXQ2yHGDh3R.QX4cTO0wiMwEzNzEzW}
 ```
 flag: `pwn.college{sChKj3fPT6HG2ZzbNXQ2yHGDh3R.QX4cTO0wiMwEzNzEzW}`
 
-## What I learned
+## What I learnt
 Through this challenge, I understood the core of the filesystem begins at the root directory (/), where all other directories and files branch out. An absolute path is a full address that starts from this root, and providing this path on the command line allows you to execute or "invoke" a specific program. For example, running the program at /pwn requires specifying that exact absolute path
 
 ## References 
