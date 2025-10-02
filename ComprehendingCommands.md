@@ -99,9 +99,10 @@ None used for this challenge
 
 
 # Listing Files
-The challenge asks to find the randomly named executable placed in /challenge
+The challenge asks to find the randomly named executable placed in `/challenge`
 
 ## The Solve
+Run `ls /challenge` to see the directory contents — in this case, it prints `12125-renamed-run-15514 DESCRIPTION.md`. List the specific file with `ls /challenge/12125-renamed-run-15514` to confirm its presence, then execute it by running `/challenge/12125-renamed-run-15514`
 
 code:
 ```
@@ -114,6 +115,12 @@ hacker@commands~listing-files:~$ /challenge/12125-renamed-run-15514
 Yahaha, you found me! Here is your flag:
 pwn.college{o3nQrlk1--G6kZHpGOV4K-c-y7T.QX4IDO0wiMwEzNzEzW}
 ```
+
+## What I learnt
+This exercise teaches basic filesystem navigation and how the `ls` command works. By default, `ls` lists files in the current directory, but if you give it a path, it shows the contents of that path instead. You also learn how command arguments change what `ls` does, and how to explore directories without needing to know exact filenames. Two helpful options are `-l`, which shows detailed file info like permissions and size, and `-a`, which includes hidden files. Overall, the challenge encourages exploring the filesystem methodically — a key skill for working in the shell and solving problems.
+
+## References
+None used for this challenge
 
 
 # Touching Files
