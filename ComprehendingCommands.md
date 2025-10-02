@@ -124,6 +124,11 @@ None used for this challenge
 
 
 # Touching Files
+For this challenge create two files: /tmp/pwn and /tmp/college, and run /challenge/run to get the flag. 
+
+## The Solve
+To solve this level, we create two empty files at the exact paths `/tmp/pwn` and `/tmp/college` and then run the provided validator. The quickest way is `touch /tmp/pwn /tmp/college` which creates the files if they don’t already exist; alternatives include shell redirection (`> /tmp/pwn` and `> /tmp/college`), `echo -n "" > /tmp/pwn`, or `dd if=/dev/null of=/tmp/college`. After creating the files, run `/challenge/run` from the shell to trigger the checker and receive the flag. If anything fails, verify `/tmp` is writable with `ls -ld /tmp`, check file existence and metadata with `ls -l /tmp/pwn /tmp/college` or `stat`, and report any error output from `/challenge/run` for further debugging.
+
 code:
 ```
 hacker@commands~touching-files:~$ cd /tmp
@@ -134,8 +139,19 @@ Success! Here is your flag:
 pwn.college{o72hQfQTeNWCUKmutHaD8AU7BdJ.QXwMDO0wiMwEzNzEzW}
 ```
 
+## What I learnt 
+This exercise teaches how to create empty files using `touch` and shell redirection, where temporary files are typically placed (`/tmp`), and how to verify file existence, permissions, and ownership (`ls -l`, `stat`). It also highlights troubleshooting steps when a command fails (checking write permissions, file paths, and error messages) and shows that many small utilities (`touch`, `echo`, `dd`) can accomplish the same result—useful for scripting and automation in shell environments.
+
+## References
+None used for this challenge
+
 
 # Removing Files
+For this challenge, the challenge will create a delete_me file in the home directory. Delete it, then run `/challenge/check`, which will make sure you've deleted it and then give the flag.
+
+# The Solve
+Change to your home directory or reference it directly, remove the `delete_me` file, then run the validator. For example: `ls -la` to confirm the file exists, then `rm delete_me`. After the file is removed, run `/challenge/check` to let the challenge verify the deletion and return the flag. 
+
 code:
 ```
 hacker@commands~removing-files:~$ touch delete_me
@@ -147,8 +163,19 @@ Excellent removal. Here is your reward:
 pwn.college{IsnGIkXzQBr3TJVNGkDntBsvktq.QX2kDM1wiMwEzNzEzW}
 ```
 
+## What I learnt
+This exercise teaches basic file deletion with `rm` and the importance of verifying file locations before removing them. Using `ls` and `pwd` to inspect directories, we learn that `rm` permanently removes files, and get introduced to common troubleshooting steps like checking file permissions (`ls -l` or `stat`) when a removal fails. It also reinforces the workflow of performing an action in the shell and then running a validator (`/challenge/check`) to confirm the expected state.
+
+## References
+None used for this challenge
+
 
 # Moving Files
+For this challenge we are to move the `/flag` file into `/tmp/hack-the-planet` and use `run /challenge/check` to check
+
+# The Solve
+To solve this challenge, start by making sure the destination directory exists using `mkdir -p /tmp/hack-the-planet`. After that, move the file using the `mv /flag /tmp/hack-the-planet/` command. You can confirm the file was successfully moved by checking the contents of the destination directory with `ls -l /tmp/hack-the-planet`. Finally, run the `/challenge/check` command to verify that the file has been moved correctly and receive your flag.
+
 code:
 ```
 hacker@commands~moving-files:~$ mv /flag /tmp/hack-the-planet
@@ -158,8 +185,15 @@ Congrats! You successfully moved the flag to /tmp/hack-the-planet! Here it is:
 pwn.college{0bGHFf9zHkgXypx_gi1m7S50B25.0VOxEzNxwiMwEzNzEzW}
 ```
 
+# What I learnt
+This challenge teaches how the `mv` command is used not only to rename files but also to move them between directories. It also emphasises the importance of ensuring the destination directory exists, which can be done with `mkdir -p` to avoid errors. The exercise encourages verification of the operation using `ls` to check the file's new location, and `cat` to inspect the file contents if required. 
+
+## References
+None used for this challenge
+
 
 # Hidden Files
+
 code:
 ```
 hacker@commands~hidden-files:~$ cd /
