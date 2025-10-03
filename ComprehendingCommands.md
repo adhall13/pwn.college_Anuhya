@@ -193,6 +193,10 @@ None used for this challenge
 
 
 # Hidden Files
+In this challenge, we are to find the flag, hidden as a dot-prepended file in /.
+
+# The Solve:
+To find the hidden flag in `/`, list hidden files and read the one that looks like a flag. In practice, you would change to the root directory and run a listing that includes dot‑files, for example `ls -a /` or `ls -la /` to see hidden entries and permission info; once you spot a dot‑prefixed filename (e.g. `.flag`), use `cat /.<name>` to view its contents. 
 
 code:
 ```
@@ -210,6 +214,12 @@ hacker@commands~hidden-files:/$ cat .flag-37861233524415
 pwn.college{0UkVPqA-mTukATHib-2eQl8ZFiB.QXwUDO0wiMwEzNzEzW}
 ```
 
+# What I learnt
+I learnt that filenames beginning with `.` are treated as hidden by many tools, so `ls` without flags omits them. The important flags are `-a` (show all files, including `.` and `..`) and `-l` (long listing that reveals ownership and permissions).
+
+## References
+None used for this challenge
+
 
 # An Epic Filesystem Quest
 code:
@@ -219,6 +229,11 @@ code:
 
 
 # Making Directories
+For this challenge, we will create a `/tmp/pwn` directory and make a `college` file in it, then run `/challenge/run`, which will give the flag.
+
+# The Solve
+To solve the challenge, create the directory using `mkdir -p /tmp/pwn` (the `-p` avoids errors if parent directories already exist), then run `touch /tmp/pwn/college` which creates an empty file named `college` inside it, and `ls -l /tmp/pwn` confirms the file is present with correct spelling and case. Finally, run `/challenge/run` to have the checker verify the solution and return the flag.
+
 code:
 ```
 hacker@commands~making-directories:~$ cd /tmp
@@ -236,8 +251,19 @@ Success! Here is your flag:
 pwn.college{Eup8vq7tOERujElr0QdOuOHnXAd.QXxMDO0wiMwEzNzEzW}
 ```
 
+# What I learnt
+The key concepts I learnt in this task are basic filesystem manipulation and precise pathing. We use `mkdir` to create directories and `touch` to create files. Also, absolute paths (`/tmp/pwn/college`) matter because automated checkers look for exact locations and names. The exercise also reinforces simple verification (`ls -l`) and the idea that a writable temporary directory like `/tmp` is the usual place to create temporary files during challenges.
 
-# Making Directories
+## References
+None used for this challenge
+
+
+# Finding Files
+For this challenge, we are locating a hidden flag file named `flag` that has been placed somewhere on the filesystem.
+
+# The Solve
+To solve the challenge, run `find` from a location that covers the whole filesystem and filter by the filename `flag`, then inspect the results until you find the real one. A practical command is `find / -type f -name flag 2>/dev/null` which searches for regular files named `flag` starting at `/` and redirects permission errors away from the output. Once you see candidate paths, read the contents with `cat` to check which file actually contains the flag. 
+
 code:
 ```
 hacker@commands~finding-files:~$ find /usr -name flag
@@ -256,14 +282,26 @@ cat /usr/share/doc/libdrm-amdgpu1/flag gives the flag.
 /usr/local/lib/python3.8/dist-packages/pwnlib/flag
 /usr/share/man/nl/man8/flag
 
+# What I learnt
+The key concepts I learnt in this task are firstly, `find` will by default print every file under the search root; useful filters like `-name` (match by name) and shell redirection like `2>/dev/null` to silence “permission denied” messages. 
+
 
 # Linking Files
+ In this level, the flag is, as always, in `/flag`, but `/challenge/catflag` will instead read out `/home/hacker/not-the-flag`. Thus, we will use the symlink to get the flag.
+
+# The Solve
+To solve the challenge, create a symbolic link at the path the checker reads that points to the real flag. Concretely, run something like `ln -s /flag /home/hacker/not-the-flag`, then run the checker `/challenge/catflag` — when it opens `/home/hacker/not-the-flag`, it will follow the symlink to `/flag` and the checker will print the flag.
+
 code:
 ```
 hacker@commands~linking-files:~$ ln -s /flag /home/hacker/not-the-flag
 hacker@commands~linking-files:~$ /challenge/catflag
 About to read out the /home/hacker/not-the-flag file!
-pwn.college{QV9VNh2rhdEfKh6MnvvCQ-eJFKc.QX5ETN1wiMwEzNzEzW} 
+pwn.college{QV9VNh2rhdEfKh6MnvvCQ-eJFKc.QX5ETN1wiMwEzNzEzW}
 ```
+
+## What I learnt
+The key concepts are what a symbolic link is and how the kernel resolves it. A symlink is a tiny file that stores a pathname; when you open the symlink the system transparently follows that stored pathname to the target. This differs from a hard link (which is another directory entry pointing to the same inode). Important practical points: the `ln -s` syntax is `ln -s <target> <linkname>`, `ls -l` will show the arrow to the target, and permissions are checked on the target file when you read through the symlink.
+
 ## Reference
 https://www.youtube.com/watch?v=m55AtwjBXpE&list=PL-ymxv0nOtqqRAz1x90vxNbhmSkeYxHVC
