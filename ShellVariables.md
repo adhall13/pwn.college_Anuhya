@@ -1,12 +1,31 @@
 # Printing Variables
+The challenge hides the flag in a shell variable named FLAG instead of letting the provided program return it. We have to print the contents of that environment variable from your current shell to read the flag directly.
+
+## The Solve
+Use a command that prints text to standard output and reference the variable with a leading dollar sign; for example, run `echo $FLAG` in your shell. The shell will substitute the value stored in `FLAG` before `echo` runs, and the variable’s contents (the flag) will be printed to the terminal. If you prefer, other printing utilities like `printf` will work as well, but `echo $FLAG` is the simplest.
+
 code:
 ```
 hacker@variables~printing-variables:~$ echo "$FLAG"
 pwn.college{88pvETaZUhs75lwPTchr7TFAxBs.QX3UTN0wiMwEzNzEzW}
 ```
 
+## What I learnt
+This exercise teaches about shell variables and parameter expansion: a `$` before a name tells the shell to replace that token with the variable’s value before running the command. It also highlights that the environment available to your interactive shell can hold secrets (like `FLAG`) separate from what a particular program returns, and that simple built-in commands can be used to inspect those variables.
+
+## References
+None used for this challenge
+
 
 # Setting Variables
+For this challenge, create a shell variable named `PWN` and assign it the exact value `COLLEGE`. The level checks that the variable exists with the correct name and case-sensitive value — `PWN` is different from `pwn`, and `COLLEGE` is different from `College` — so you need to perform a proper shell assignment that the shell will recognize.
+
+**How to solve the challenge**
+Assign the value to the variable using the shell’s assignment syntax: the variable name, an equals sign with no surrounding spaces, and the value. After that, you can read the variable using the `$` prefix to confirm it holds the expected value. Remember that the `$` is only used when accessing a variable, not when creating it.
+
+**Key concepts of the challenge**
+This exercise reinforces shell variable assignment and expansion: `NAME=VALUE` creates or changes a shell variable, and `$NAME` expands to its value. Important gotchas are that there must be no spaces around the `=` and that both variable names and values are case-sensitive. Also note the distinction between assigning a shell variable and exporting it to the environment — a plain assignment lives in the current shell unless you explicitly export it.
+
 code:
 ```
 hacker@variables~setting-variables:~$ PWN=COLLEGE
