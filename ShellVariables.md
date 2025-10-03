@@ -20,11 +20,8 @@ None used for this challenge
 # Setting Variables
 For this challenge, create a shell variable named `PWN` and assign it the exact value `COLLEGE`. The level checks that the variable exists with the correct name and case-sensitive value — `PWN` is different from `pwn`, and `COLLEGE` is different from `College` — so you need to perform a proper shell assignment that the shell will recognize.
 
-**How to solve the challenge**
+## The Solve
 Assign the value to the variable using the shell’s assignment syntax: the variable name, an equals sign with no surrounding spaces, and the value. After that, you can read the variable using the `$` prefix to confirm it holds the expected value. Remember that the `$` is only used when accessing a variable, not when creating it.
-
-**Key concepts of the challenge**
-This exercise reinforces shell variable assignment and expansion: `NAME=VALUE` creates or changes a shell variable, and `$NAME` expands to its value. Important gotchas are that there must be no spaces around the `=` and that both variable names and values are case-sensitive. Also note the distinction between assigning a shell variable and exporting it to the environment — a plain assignment lives in the current shell unless you explicitly export it.
 
 code:
 ```
@@ -32,6 +29,12 @@ hacker@variables~setting-variables:~$ PWN=COLLEGE
 You've set the PWN variable properly! As promised, here is the flag:
 pwn.college{w3i3kK9Oqc3OgEttaH_PZCECzUh.QX5UTN0wiMwEzNzEzW}
 ```
+
+## What I learnt
+This exercise reinforces shell variable assignment and expansion: `NAME=VALUE` creates or changes a shell variable, and `$NAME` expands to its value. Important gotchas are that there must be no spaces around the `=` and that both variable names and values are case-sensitive. Also note the distinction between assigning a shell variable and exporting it to the environment — a plain assignment lives in the current shell unless you explicitly export it.
+
+## References
+None used for this challenge
 
 
 # Multi-word Variables
