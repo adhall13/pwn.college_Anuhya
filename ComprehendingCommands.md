@@ -224,7 +224,144 @@ None used for this challenge
 # An Epic Filesystem Quest
 code:
 ```
+hacker@commands~an-epic-filesystem-quest:~$ cd /
+hacker@commands~an-epic-filesystem-quest:/$ ls
+NOTE  challenge  flag  lib32   media  opt   run   sys  var
+bin   dev        home  lib64   mnt    proc  sbin  tmp
+boot  etc        lib   libx32  nix    root  srv   usr
+hacker@commands~an-epic-filesystem-quest:/$ cat NOTE
+Great sleuthing!
+The next clue is in: /usr/local/lib/python3.8/dist-packages/scapy/contrib/automotive/obd/pid
 
+Watch out! The next clue is **trapped**. You'll need to read it out without 'cd'ing into the directory; otherwise, the clue will self destruct!
+hacker@commands~an-epic-filesystem-quest:/$ ls -al /usr/local/lib/pyt
+hon3.8/dist-packages/scapy/contrib/automotive/obd/pid
+total 108
+drwxr-sr-x 1 root   staff   4096 Oct  5 21:32 .
+drwxr-sr-x 1 root   staff   4096 Sep 26 17:24 ..
+-rw-r--r-- 1 hacker hacker   209 Oct  5 21:32 DISPATCH-TRAPPED
+-rw-r--r-- 1 root   staff    340 Sep 26 17:24 __init__.py
+drwxr-sr-x 2 root   staff   4096 Sep 26 17:24 __pycache__
+-rw-r--r-- 1 root   staff  18756 Sep 26 17:24 pids.py
+-rw-r--r-- 1 root   staff   9343 Sep 26 17:24 pids_00_1F.py
+-rw-r--r-- 1 root   staff   5411 Sep 26 17:24 pids_20_3F.py
+-rw-r--r-- 1 root   staff   8258 Sep 26 17:24 pids_40_5F.py
+-rw-r--r-- 1 root   staff  19043 Sep 26 17:24 pids_60_7F.py
+-rw-r--r-- 1 root   staff   7346 Sep 26 17:24 pids_80_9F.py
+-rw-r--r-- 1 root   staff   2932 Sep 26 17:24 pids_A0_C0.py
+hacker@commands~an-epic-filesystem-quest:/$ cat /usr/local/lib/python3.8/dist-packages/scapy/contrib/automotive/obd/pid/DISPATCH-TRAPPED
+Tubular find!
+The next clue is in: /opt/linux/linux-5.4/scripts/selinux/mdp
+
+The next clue is **hidden** --- its filename starts with a '.' character. You'll need to look for it using special options to 'ls'.
+hacker@commands~an-epic-filesystem-quest:/$ ls -al /opt/linux/linux-5.4/scripts/selinux/mdp
+total 132
+drwxrwxr-x 1 root root  4096 Oct  5 21:32 .
+drwxrwxr-x 1 root root  4096 Nov 25  2019 ..
+-rw-r--r-- 1 root root    99 Oct  5 21:32 .NUGGET
+-rw-rw-r-- 1 root root    21 Nov 25  2019 .gitignore
+-rw-r--r-- 1 root root  6210 Sep 26 17:11 .mdp.cmd
+-rw-rw-r-- 1 root root   251 Nov 25  2019 Makefile
+-rw-rw-r-- 1 root root   195 Nov 25  2019 dbus_contexts
+-rwxr-xr-x 1 root root 87592 Sep 26 17:11 mdp
+-rw-rw-r-- 1 root root  6368 Nov 25  2019 mdp.c
+hacker@commands~an-epic-filesystem-quest:/$ cat /opt/linux/linux-5.4/scripts/selinux/mdp/.NUGGET
+Yahaha, you found me!
+The next clue is in: /opt/linux/linux-5.4/tools/perf/pmu-events/arch/powerpc
+hacker@commands~an-epic-filesystem-quest:/$ ls -al /opt/linux/linux-5.4/tools/perf/pmu-events/arch/powerpc
+total 28
+drwxrwxr-x 1 root root 4096 Oct  5 21:32 .
+drwxrwxr-x 1 root root 4096 Nov 25  2019 ..
+-rw-r--r-- 1 root root  274 Oct  5 21:32 WHISPER
+-rw-rw-r-- 1 root root  440 Nov 25  2019 mapfile.csv
+drwxrwxr-x 2 root root 4096 Nov 25  2019 power8
+drwxrwxr-x 2 root root 4096 Nov 25  2019 power9
+hacker@commands~an-epic-filesystem-quest:/$ cat /opt/linux/linux-5.4/tools/perf/pmu-events/arch/powerpc/WHISPER
+Congratulations, you found the clue!
+The next clue is in: /usr/share/javascript/mathjax/jax/output/HTML-CSS/fonts/STIX-Web/SansSerif/Regular
+
+The next clue is **hidden** --- its filename starts with a '.' character. You'll need to look for it using special options to 'ls'.
+hacker@commands~an-epic-filesystem-quest:/$ ls -al /usr/share/javascript/mathjax/jax/output/HTML-CSS/fonts/STIX-Web/SansSerif/Regular
+total 24
+drwxr-xr-x 1 root root 4096 Oct  5 21:32 .
+drwxr-xr-x 1 root root 4096 Sep 26 17:09 ..
+-rw-r--r-- 1 root root  101 Oct  5 21:32 .CUE
+-rw-r--r-- 1 root root 4256 May 15  2018 Main.js
+hacker@commands~an-epic-filesystem-quest:/$ cat /usr/share/javascript/mathjax/jax/output/HTML-CSS/fonts/STIX-Web/SansSerif/Regular/.CUE
+Congratulations, you found the clue!
+The next clue is in: /opt/linux/linux-5.4/tools/virtio/ringtest
+hacker@commands~an-epic-filesystem-quest:/$ ls -al /opt/linux/linux-5.4/tools/virtio/ringtest
+total 76
+drwxrwxr-x 1 root root 4096 Oct  5 21:32 .
+drwxrwxr-x 1 root root 4096 Nov 25  2019 ..
+-rw-r--r-- 1 root root  242 Oct  5 21:32 DOSSIER
+-rw-rw-r-- 1 root root  963 Nov 25  2019 Makefile
+-rw-rw-r-- 1 root root  177 Nov 25  2019 README
+-rw-rw-r-- 1 root root 6532 Nov 25  2019 main.c
+-rw-rw-r-- 1 root root 4807 Nov 25  2019 main.h
+-rw-rw-r-- 1 root root  971 Nov 25  2019 noring.c
+-rw-rw-r-- 1 root root 3601 Nov 25  2019 ptr_ring.c
+-rw-rw-r-- 1 root root 5946 Nov 25  2019 ring.c
+-rwxrwxr-x 1 root root  670 Nov 25  2019 run-on-all.sh
+-rw-rw-r-- 1 root root 7155 Nov 25  2019 virtio_ring_0_9.c
+-rw-rw-r-- 1 root root   47 Nov 25  2019 virtio_ring_inorder.c
+-rw-rw-r-- 1 root root   49 Nov 25  2019 virtio_ring_poll.c
+hacker@commands~an-epic-filesystem-quest:/$ cat /opt/linux/linux-5.4/tools/virtio/ringtest/DOSSIER
+Congratulations, you found the clue!
+The next clue is in: /usr/local/lib/python3.8/dist-packages/prompt_toolkit/contrib/telnet/__pycache__
+
+The next clue is **delayed** --- it will not become readable until you enter the directory with 'cd'.
+hacker@commands~an-epic-filesystem-quest:/$ cd /usr/local/lib/python3.8/dist-packages/prompt_toolkit/contrib/telnet/__pycache__
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/prompt_toolkit/contrib/telnet/__pycache__$ ls -al 
+total 48
+drwxr-sr-x 1 root   staff   4096 Oct  5 21:32 .
+drwxr-sr-x 1 root   staff   4096 Sep 26 17:24 ..
+-rw-r--r-- 1 hacker hacker   293 Oct  5 21:32 MEMO
+-rw-r--r-- 1 root   staff    283 Sep 26 17:24 __init__.cpython-38.pyc
+-rw-r--r-- 1 root   staff    348 Sep 26 17:24 log.cpython-38.pyc
+-rw-r--r-- 1 root   staff   5378 Sep 26 17:24 protocol.cpython-38.pyc
+-rw-r--r-- 1 root   staff  12644 Sep 26 17:24 server.cpython-38.pyc
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/prompt_toolkit/contrib/telnet/__pycache__$ cat MEMO
+Congratulations, you found the clue!
+The next clue is in: /usr/local/lib/python3.8/dist-packages/networkx/algorithms/connectivity/tests/__pycache__
+
+Watch out! The next clue is **trapped**. You'll need to read it out without 'cd'ing into the directory; otherwise, the clue will self destruct!
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/prompt_toolkit/contrib/telnet/__pycache__$ ls  -al /usr/local/lib/python3.8/dist-packages/networkx/algorithms/connectivity/tests/__pycache__
+total 108
+drwxr-sr-x 1 root   staff   4096 Oct  5 21:32 .
+drwxr-sr-x 1 root   staff   4096 Sep 26 17:24 ..
+-rw-r--r-- 1 hacker hacker    81 Oct  5 21:32 HINT-TRAPPED
+-rw-r--r-- 1 root   staff    174 Sep 26 17:24 __init__.cpython-38.pyc
+-rw-r--r-- 1 root   staff  14923 Sep 26 17:24 test_connectivity.cpython-38.pyc
+-rw-r--r-- 1 root   staff   8795 Sep 26 17:24 test_cuts.cpython-38.pyc
+-rw-r--r-- 1 root   staff   8051 Sep 26 17:24 test_disjoint_paths.cpython-38.pyc
+-rw-r--r-- 1 root   staff  12829 Sep 26 17:24 test_edge_augmentation.cpython-38.pyc
+-rw-r--r-- 1 root   staff  13227 Sep 26 17:24 test_edge_kcomponents.cpython-38.pyc
+-rw-r--r-- 1 root   staff   6751 Sep 26 17:24 test_kcomponents.cpython-38.pyc
+-rw-r--r-- 1 root   staff   7697 Sep 26 17:24 test_kcutsets.cpython-38.pyc
+-rw-r--r-- 1 root   staff   2868 Sep 26 17:24 test_stoer_wagner.cpython-38.pyc
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/prompt_toolkit/contrib/telnet/__pycache__$ cat /usr/local/lib/python3.8/dist-packages/networkx/algorithms/connectivity/tests/__pycache__/HINT-TRAPPED
+Yahaha, you found me!
+The next clue is in: /opt/linux/linux-5.4/drivers/platform
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/prompt_toolkit/contrib/telnet/__pycache__$ ls -al /opt/linux/linux-5.4/drivers/platform
+total 56
+drwxrwxr-x 1 root root 4096 Oct  5 21:32 .
+drwxrwxr-x 1 root root 4096 Sep 26 17:18 ..
+-rw-r--r-- 1 root root  140 Sep 26 17:17 .built-in.a.cmd
+-rw-rw-r-- 1 root root  314 Nov 25  2019 Kconfig
+-rw-rw-r-- 1 root root  290 Nov 25  2019 Makefile
+-rw-r--r-- 1 root root  146 Oct  5 21:32 TIP
+-rw-r--r-- 1 root root  224 Sep 26 17:17 built-in.a
+drwxrwxr-x 3 root root 4096 Nov 25  2019 chrome
+drwxrwxr-x 2 root root 4096 Nov 25  2019 goldfish
+drwxrwxr-x 2 root root 4096 Nov 25  2019 mellanox
+drwxrwxr-x 2 root root 4096 Nov 25  2019 mips
+drwxrwxr-x 2 root root 4096 Nov 25  2019 olpc
+drwxrwxr-x 1 root root 4096 Sep 26 17:17 x86
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/prompt_toolkit/contrib/telnet/__pycache__$ cat /opt/linux/linux-5.4/drivers/platform/TIP
+CONGRATULATIONS! Your perserverence has paid off, and you have found the flag!
+It is: pwn.college{gkLjys10PaAGe2IuFBkYWlV4JnF.QX5IDO0wiMwEzNzEzW}
+hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/prompt_toolkit/contrib/telnet/__pycache__$ 
 ```
 
 
