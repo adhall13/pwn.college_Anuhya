@@ -67,7 +67,7 @@ None used for this challenge
 
 
 # Matching with []
-In this challenge, you are asked to change your working directory to `/challenge/files` and then run `/challenge/run`. However, you need to use a glob pattern with square brackets `[]` to match a specific set of files — specifically, `file_b`, `file_a`, `file_s`, and `file_h` — all with a single argument. This requires you to craft a pattern using square brackets that includes the characters needed to match the filenames you're interested in.
+In this challenge, you are asked to change your working directory to `/challenge/files` and then run `/challenge/run`. However, you need to use a glob pattern with square brackets `[]` to match a specific set of files — specifically, `file_b`, `file_a`, `file_s`, and `file_h` — all with a single argument. This requires to craft a pattern using square brackets that includes the characters needed to match the filenames to use.
 
 ## The Solve
 To solve this, you'll need to identify the common pattern in the filenames and use square bracket globbing to match them. The pattern you need is `file_[bahs]`, where the square brackets allow you to match any one of the characters `b`, `a`, `h`, or `s` in place of the last character of the filename. This will match the filenames `file_b`, `file_a`, `file_s`, and `file_h`. Once you're in the right directory, running the command `/challenge/run` will give you the flag.
@@ -83,7 +83,7 @@ pwn.college{s0TCOgbLRGZn7Lwflxpz1c33DZr.QXzIDO0wiMwEzNzEzW}
 ```
 
 ## What I learnt
-The challenge revolves around using the square brackets `[]` for pattern matching in filenames. Unlike `?`, which matches exactly one character, `[]` allows you to specify a range or set of characters that can match any one of them. For example, `[pwn]` will match any of the characters `p`, `w`, or `n`. This makes `[]` a more flexible tool compared to `?`, as you can precisely control which characters can appear in a given position of the filename. Understanding how to apply this concept in the context of globbing is key to solving the challenge efficiently.
+The challenge revolves around using the square brackets `[]` for pattern matching in filenames. Unlike `?`, which matches exactly one character, `[]` allows you to specify a range or set of characters that can match any one of them. For example, `[pwn]` will match any of the characters `p`, `w`, or `n`. This makes `[]` a more flexible tool compared to `?`, as you can precisely control which characters can appear in a given position of the filename. 
 
 ## References
 None used for this challenge
@@ -136,7 +136,7 @@ None used for this challenge
 
 
 # Mixing Globs
-In this challenge, we are to change into `/challenge/files` and run `/challenge/run` with a single, short glob pattern. This glob must match the filenames `challenging`, `educational`, and `pwning` when expanded by the shell. Essentially, you need to craft a glob that, when expanded, will target these specific files.
+In this challenge, we change into `/challenge/files` and run `/challenge/run` with a single, short glob pattern. This glob must match the filenames `challenging`, `educational`, and `pwning` when expanded by the shell. 
 
 ## The Solve
 To solve this, you'll need to use globbing to match all three filenames within the 6-character limit. A possible solution would be using the pattern `*ing`. This works because the suffix `ing` is common to all three filenames, and the leading `*` matches any characters before it. The shell will expand `*ing` to match `challenging`, `educational`, and `pwning` when you run the `/challenge/run` command with that argument.
@@ -154,14 +154,14 @@ pwn.college{EIqyHyjztCDLuYqzZqC1m0UvDC5.QX1IDO0wiMwEzNzEzW}
 ```
 
 ## What I learnt
-I learnt that this challenge brings together multiple globbing concepts: using `*` to match any sequence of characters and narrowing the match with a specific suffix. The pattern `*ing` leverages the power of `*` to match any prefix before the `ing` suffix, which is common to all three target filenames. The shell expands this glob pattern before executing the command, and the result is passed as an argument to `/challenge/run`. Understanding how to craft short, efficient glob patterns that match specific files is crucial here.
+I learnt that this challenge brings together multiple globbing concepts: using `*` to match any sequence of characters and narrowing the match with a specific suffix. The pattern `*ing` leverages the power of `*` to match any prefix before the `ing` suffix, which is common to all three target filenames. The shell expands this glob pattern before executing the command, and the result is passed as an argument to `/challenge/run`. 
 
 ## References
 None used for this challenge
 
 
 # Exclusionary Globbing
-In this challenge, you're tasked with running `/challenge/run` from `/challenge/files`, but you must provide a glob pattern that matches all files in the directory except those that start with the letters `p`, `w`, or `n`. The glob should be able to exclude files starting with these letters, effectively filtering them out.
+In this challenge, you're tasked with running `/challenge/run` from `/challenge/files`, but you must provide a glob pattern that matches all files in the directory except those that start with the letters `p`, `w`, or `n`. 
 
 ## The Solve
 To solve this, you'll use the `[]` globbing feature to exclude files that start with `p`, `w`, or `n`. By using the `!` or `^` character inside the brackets, you can invert the match. For example, the pattern `file_[!pwn]*` or `file_[^pwn]*` will match all files that do not begin with `p`, `w`, or `n`. This way, when the shell expands the glob, it will pass only the filenames that don't start with those letters as arguments to `/challenge/run`.
@@ -195,7 +195,7 @@ pwn.college{wTfbp6pxnMppN6NKLITDkpioxmW.0FN0EzNxwiMwEzNzEzW}
 ```
 
 ## What I learnt
-This exercise demonstrates shell tab-completion (readline/programmable completion) as a safer and more reliable way to specify filenames than guessing or using wildcards. Completion uses the filesystem’s actual names, so it will reveal and insert characters that may be invisible or awkward to type (control characters, punctuation, unusual Unicode, etc.), avoiding mistakes caused by glob expansion or manual typing. It also highlights the difference between what a directory listing visually suggests and the exact string the shell must send to the kernel to open a file.
+This exercise demonstrates shell tab-completion (readline/programmable completion) as a safer and more reliable way to specify filenames than guessing or using wildcards. Completion uses the filesystem’s actual names, so it will reveal and insert characters that may be invisible or awkward to type (control characters, punctuation, unusual Unicode, etc.), avoiding mistakes caused by glob expansion or manual typing.
 
 ## References
 None used for this challenge
@@ -221,7 +221,7 @@ None used for this challenge
 
 
 # Multiple Options on Command
-The task is to invoke a hidden program whose name begins with `pwncollege` by using your shell’s command-name tab-completion. The program will print the flag when executed, but you’re not expected to type the whole command name by hand — you should rely on the shell to auto-complete the command for you.
+The task is to invoke a hidden program whose name begins with `pwncollege` by using your shell’s command-name tab-completion. The program will print the flag when executed, but you’re not expected to type the whole command name by hand; the shell will auto-complete.
 
 ## The Solve
 Start typing the beginning of the program name (`pwncollege`) at the shell prompt and press the Tab key. The shell’s completion system will fill in the rest of the command name; once the name is completed, hit Enter to run it and read the flag. 
