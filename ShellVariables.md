@@ -151,9 +151,19 @@ None used for this challenge
 
 
 # Reading Files
+Put the current contents of the file `/challenge/read_me` into a shell variable named `PWN` with a single command, without starting an extra program just to read the file.
+
+## The Solve
+Use the shell builtin `read` and redirect the file into its standard input so `read` assigns the file’s contents directly into `PWN` in one step.
 code:
 ```
 hacker@variables~reading-files:~$ read PWN < /challenge/read_me
 You've set the PWN variable properly! As promised, here is the flag:
 pwn.college{kd_v4Ve8zoWvSm954wSlwsEJkSn.QXwIDO0wiMwEzNzEzW}
 ```
+
+## What I learnt 
+This exercise reinforces a few important shell fundamentals. First, shell builtins like `read` can operate on redirected standard input (stdin) and assign values directly to the shell environment, which is more efficient than invoking external utilities. Second, input redirection (`<`) lets you feed files into commands without using pipes or extra processes, eliminating the use of `cat`. Third, the distinction between shell builtins and external programs matters for performance and for whether a variable becomes available in the current shell. Finally, because the file changes over time, reading it directly at the moment you run the built-in guarantees you capture the file’s latest contents rather than an earlier snapshot.
+
+## References
+None used for this challenge
