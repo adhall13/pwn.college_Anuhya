@@ -159,3 +159,6 @@ code:
 ```
 
 ```
+flag: `pwn.college{QTJW_TkvQeZwsR3-DxvrbjEr4-v.0FM5IDOxwiMwEzNzEzW} `
+note:
+use Ctrl-B w = This will show a window picker, allowing you to choose Window 0 and retrieve the flag
