@@ -50,9 +50,3 @@ code:
 hacker@data~sorting-data:~$ sort /challenge/flags.txt | tail -n 1
 pwn.college{Eb6IFXS4cUMdvGQUgYbWClxwYUi.0FM0MDOxwiMwEzNzEzW}
 ```
-
-## What I learnt 
-
-
-## References
-None used for this challenge
