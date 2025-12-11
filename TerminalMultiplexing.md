@@ -157,8 +157,38 @@ Reattach to see your prize
 # Switching Windows (tmux)
 code:
 ```
+hacker@terminal-multiplexing~detaching-and-attaching-tmux:~$ tmux
+[detached (from session 0)]
+hacker@terminal-multiplexing~detaching-and-attaching-tmux:~$ /challenge/run
+Found detached tmux session: 0
+Sending flag to your tmux session...
+
+Flag sent! Now reattach to your tmux session with:
+  tmux attach
+
+You'll find the flag waiting for you there!
+hacker@terminal-multiplexing~detaching-and-attaching-tmux:~$ tmux a
+```
 
 ```
+hacker@terminal-multiplexing~detaching-and-attaching-tmux:~$  echo Congratulations, here is your flag: pwn.college{4b7bJVvVaWQFlxHwFS-4IVQXya1.0VO4IDOxwCM4kjNzEzW}
+Congratulations, here is your flag: pwn.college{4b7bJVvVaWQFlxHwFS-4IVQXya1.0VO4IDOxwCM4kjNzEzW}
+```
+
 flag: `pwn.college{QTJW_TkvQeZwsR3-DxvrbjEr4-v.0FM5IDOxwiMwEzNzEzW} `
+
+
 note:
 use Ctrl-B w = This will show a window picker, allowing you to choose Window 0 and retrieve the flag
+
+Ctrl-B c - Create a new window
+Ctrl-B n - Next window
+Ctrl-B p - Previous window
+Ctrl-B 0 through Ctrl-B 9 - Jump to window 0-9
+Ctrl-B w - See a nice window picker
+
+Tmux shows your windows at the bottom in a status bar that looks like:
+
+[0] 0:bash* 1:bash
+
+The * shows your current window, and each entry also shows the process that the window was created to run.
